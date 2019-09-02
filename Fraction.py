@@ -3,47 +3,47 @@ class Fraction:
         self.x = x
         self.y = y
 
-    def fraction(self, chisl, znam, max_number):
+    def fraction(self, numerator, denumerator, max_number):
         while max_number != 1:
-            if chisl % max_number == 0 and znam % max_number == 0:
-                chisl = chisl / max_number
-                znam = znam / max_number
+            if numerator % max_number == 0 and denumerator % max_number == 0:
+                numerator = numerator / max_number
+                denumerator = denumerator / max_number
             max_number -= 1
-        return int(chisl), int(znam)
+        return int(numerator), int(denumerator)
 
     def __add__(self, other):
-        chisl = self.x * other.y + other.x * self.y
-        znam = self.y * other.y
-        max_number = max(chisl, znam)
-        rez = self.fraction(chisl, znam, max_number)
+        numerator = self.x * other.y + other.x * self.y
+        denumerator = self.y * other.y
+        max_number = max(numerator, denumerator)
+        rez = self.fraction(numerator, denumerator, max_number)
         return "{} / {}".format(rez[0], rez[1])
 
     def __sub__(self, other):
-        chisl = self.x * other.y - other.x * self.y
-        znam = self.y * other.y
-        max_number = max(chisl, znam)
-        rez = self.fraction(chisl, znam, max_number)
+        numerator = self.x * other.y - other.x * self.y
+        denumerator = self.y * other.y
+        max_number = max(numerator, denumerator)
+        rez = self.fraction(numerator, denumerator, max_number)
         return "{} / {}".format(rez[0], rez[1])
 
     def __mul__(self, other):
-        chisl = self.x * other.x
-        znam = self.y * other.y
+        numerator = self.x * other.x
+        denumerator = self.y * other.y
         max_number = max(self.x, self.y, other.x, other.y)
-        rez = self.fraction(chisl, znam, max_number)
+        rez = self.fraction(numerator, denumerator, max_number)
         return "{} / {}".format(rez[0], rez[1])
 
     def __truediv__(self, other):
-        chisl = self.x * other.y
-        znam = self.y * other.x
+        numerator = self.x * other.y
+        denumerator = self.y * other.x
         max_number = max(self.x, self.y, other.x, other.y)
-        rez = self.fraction(chisl, znam, max_number)
+        rez = self.fraction(numerator, denumerator, max_number)
         return "{} / {}".format(rez[0], rez[1])
 
     def __str__(self):
-        chisl = self.x
-        znam = self.y
-        max_number = max(chisl, znam)
-        rez = self.fraction(chisl, znam, max_number)
+        numerator = self.x
+        denumerator = self.y
+        max_number = max(numerator, denumerator)
+        rez = self.fraction(numerator, denumerator, max_number)
         return "{} / {}".format(rez[0], rez[1])
 
 
